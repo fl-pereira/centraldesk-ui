@@ -1,0 +1,18 @@
+<div class="container">
+  <h2>Chamados</h2>
+
+  <a routerLink="/novo">
+    <button style="margin-bottom: 15px;">Novo Chamado</button>
+  </a>
+
+  <div *ngFor="let chamado of chamados" class="card">
+    <h3>{{ chamado.titulo }}</h3>
+    <p>{{ chamado.descricao }}</p>
+    <small>Status: {{ chamado.status }}</small>
+  </div>
+
+  <div class="pagination">
+    <button (click)="paginaAnterior()">Anterior</button>
+    <button (click)="proximaPagina()">Próxima</button>
+  </div>
+</div>
