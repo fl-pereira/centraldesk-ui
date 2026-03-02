@@ -1,39 +1,121 @@
-body {
-  font-family: Arial, Helvetica, sans-serif;
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  font-family: Arial, sans-serif;
 }
 
-.container {
-  max-width: 800px;
-  margin: 40px auto;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+h2 {
+  margin: 0;
+}
+
+.filtro {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+select {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
 }
 
 .card {
   background: #ffffff;
-  padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 20px;
   margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: transform 0.15s ease;
 }
 
-h2 {
-  margin-bottom: 20px;
+.card:hover {
+  transform: translateY(-2px);
 }
 
-button {
-  background-color: #2563eb;
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.descricao {
+  margin: 10px 0 0;
+  color: #555;
+}
+
+.badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
   color: white;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 6px;
-  cursor: pointer;
 }
 
-button:hover {
-  background-color: #1e40af;
+/* CORES POR STATUS */
+
+.ABERTO {
+  background-color: #3498db;
+}
+
+.EM_ATENDIMENTO {
+  background-color: #f39c12;
+}
+
+.RESOLVIDO {
+  background-color: #2ecc71;
+}
+
+.FINALIZADO {
+  background-color: #7f8c8d;
+}
+
+.CANCELADO {
+  background-color: #e74c3c;
 }
 
 .pagination {
+  margin-top: 30px;
   display: flex;
-  gap: 10px;
-  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+button {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #2563eb;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8;
+}
+
+.btn-secondary {
+  background-color: #64748b;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #475569;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }

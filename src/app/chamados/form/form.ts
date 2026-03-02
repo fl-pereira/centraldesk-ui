@@ -17,7 +17,8 @@ export class FormComponent {
 
   constructor(
       private fb: FormBuilder,
-      private service: ChamadoService
+      private service: ChamadoService,
+      private router: Router
     ) {
       this.form = this.fb.group({
         titulo: ['', Validators.required],
@@ -44,8 +45,7 @@ export class FormComponent {
 
     this.service.criar(dados).subscribe({
       next: () => {
-        alert('Chamado criado com sucesso!');
-        this.form.reset();
+        this.router.navigate(['/']);
       },
       error: (err) => {
         console.error('Erro ao criar chamado:', err);

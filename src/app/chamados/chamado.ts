@@ -10,10 +10,14 @@ export class ChamadoService {
 
   constructor(private http: HttpClient) {}
 
-  listar(page: number = 0, size: number = 5) {
-    return this.http.get<any>(
-      `${this.api}?page=${page}&size=${size}&sort=id,asc`
-    );
+  listar(page: number = 0, size: number = 5, status?: string) {
+    let url = `${this.api}?page=${page}&size=${size}&sort=id,asc`;
+
+    if (status) {
+      url += `&status=${status}`;
+    }
+
+    return this.http.get<any>(url);
   }
 
   criar(dados: any) {

@@ -1,18 +1,48 @@
 <div class="container">
-  <h2>Chamados</h2>
 
-  <a routerLink="/novo">
-    <button style="margin-bottom: 15px;">Novo Chamado</button>
-  </a>
+  <div class="header">
+    <h2>Chamados</h2>
+    <button class="btn-primary" routerLink="/novo">+ Novo Chamado</button>
+  </div>
+
+  <div class="filtro">
+    <label>Filtrar por status</label>
+
+    <select [(ngModel)]="statusSelecionado">
+      <option value="">Todos</option>
+      <option value="ABERTO">Aberto</option>
+      <option value="EM_ATENDIMENTO">Em Atendimento</option>
+      <option value="RESOLVIDO">Resolvido</option>
+      <option value="FINALIZADO">Finalizado</option>
+      <option value="CANCELADO">Cancelado</option>
+    </select>
+
+    <button class="btn-secondary" (click)="filtrar()">Filtrar</button>
+  </div>
 
   <div *ngFor="let chamado of chamados" class="card">
-    <h3>{{ chamado.titulo }}</h3>
-    <p>{{ chamado.descricao }}</p>
-    <small>Status: {{ chamado.status }}</small>
+
+    <div class="card-header">
+      <h3>{{ chamado.titulo }}</h3>
+      <span class="badge" [ngClass]="chamado.status">
+        {{ chamado.status }}
+      </span>
+    </div>
+
+    <p class="descricao">{{ chamado.descricao }}</p>
+
   </div>
 
   <div class="pagination">
-    <button (click)="paginaAnterior()">Anterior</button>
-    <button (click)="proximaPagina()">Próxima</button>
+    <button (click)="paginaAnterior()" [disabled]="page === 0">
+      ◀ Anterior
+    </button>
+
+    <span>Página {{ page + 1 }}</span>
+
+    <button (click)="proximaPagina()">
+      Próxima ▶
+    </button>
   </div>
+
 </div>
